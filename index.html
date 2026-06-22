@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Profile</title>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f4f7f6;
-            --card-bg: #ffffff;
-            --text-main: #333333;
-            --text-muted: #666666;
-            --accent: #2563eb;
+            --bg-dark-1: #071124;
+            --bg-dark-2: #0f1724;
+            --card-bg: rgba(255,255,255,0.04);
+            --card-border: rgba(255,255,255,0.06);
+            --text-main: #e6eef8;
+            --text-muted: #9fb0c8;
+            --accent-start: #7c3aed; /* violet */
+            --accent-end: #06b6d4;   /* teal */
+            --accent-shadow: rgba(99,102,241,0.15);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(180deg, #f7f8fa 0%, #eef2f5 100%);
+            color: #0b2545;
             line-height: 1.6;
             margin: 0;
-            padding: 40px 20px;
+            padding: 48px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,79 +32,139 @@
         }
 
         .profile-card {
-            background: var(--card-bg);
+            position: relative;
+            background: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            max-width: 500px;
+            border: 1px solid rgba(11,37,69,0.08);
+            box-shadow: 0 8px 24px rgba(11,37,69,0.06);
+            max-width: 560px;
             width: 100%;
-            padding: 32px;
+            padding: 36px 36px 30px 36px;
             text-align: center;
         }
 
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 6px;
+            width: 100%;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            background: linear-gradient(90deg, #0b2545 0%, #b08b2d 100%);
+        }
+
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #2563eb, #9333ea);
-            margin: 0 auto 20px;
+            background: #ffffff;
+            margin: 0 auto 18px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: bold;
+            color: #0b2545;
+            font-size: 2rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            border: 2px solid #0b2545;
+            box-shadow: 0 6px 18px rgba(11,37,69,0.06);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
 
         h1 {
             margin: 0 0 8px 0;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: #0b2545;
+            letter-spacing: 0.2px;
         }
 
         .title {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 24px;
+            color: #0b2545;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 1.02rem;
+        }
+
+        .name-underline {
+            width: 72px;
+            height: 6px;
+            margin: 8px auto 18px;
+            border-radius: 6px;
+            background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+            box-shadow: 0 8px 30px rgba(124,58,237,0.12);
         }
 
         .bio {
-            color: var(--text-muted);
-            margin-bottom: 24px;
+            color: #475b66;
+            margin-bottom: 20px;
+            font-size: 0.98rem;
         }
 
         .skills {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 24px;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .badge {
-            background-color: #eff6ff;
-            color: var(--accent);
+            background: transparent;
+            color: #0b2545;
             padding: 6px 12px;
-            border-radius: 20px;
+            border-radius: 999px;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
+            border: 1px solid rgba(11,37,69,0.08);
         }
 
         .links a {
-            color: var(--text-muted);
+            display: inline-block;
+            background: #0b2545;
+            color: #f7e5b8;
+            padding: 10px 18px;
+            border-radius: 8px;
             text-decoration: none;
-            transition: color 0.2s;
+            font-weight: 700;
+            transition: transform 0.14s ease, box-shadow 0.14s ease, opacity 0.14s ease;
+            box-shadow: 0 8px 18px rgba(11,37,69,0.08);
         }
 
         .links a:hover {
-            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 34px rgba(11,37,69,0.12);
+            opacity: 0.98;
+        }
+
+        .divider {
+            height: 1px;
+            width: 86%;
+            margin: 18px auto;
+            background: linear-gradient(90deg, rgba(11,37,69,0.04), rgba(11,37,69,0.02));
+            border-radius: 2px;
+        }
+
+        @media (max-width: 480px) {
+            .profile-card { padding: 24px; }
+            .avatar { width: 96px; height: 96px; font-size: 2rem; }
+            h1 { font-size: 1.5rem; }
+            .bio { font-size: 0.95rem; }
+            .name-underline { width: 56px; height: 5px; }
         }
     </style>
 </head>
 <body>
 
     <div class="profile-card">
-        <div class="avatar">AI</div>
+        <div class="avatar">JL</div>
         
         <h1>John Albert C. Lachica</h1>
+        <div class="name-underline" aria-hidden="true"></div>
         <div class="title">Aspiring Developer / Student</div>
         
         <p class="bio">
@@ -114,8 +179,10 @@
             <span class="badge">AI Prompting</span>
         </div>
 
+        <div class="divider" aria-hidden="true"></div>
+
         <div class="links">
-            <a href="https://github.com" target="_blank">View GitHub Portfolio</a>
+            <a href="https://github.com/AlbertJohn2004" target="_blank">View GitHub Portfolio</a>
         </div>
     </div>
 
