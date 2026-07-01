@@ -1,189 +1,93 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Profile</title>
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark-1: #071124;
-            --bg-dark-2: #0f1724;
-            --card-bg: rgba(255,255,255,0.04);
-            --card-border: rgba(255,255,255,0.06);
-            --text-main: #e6eef8;
-            --text-muted: #9fb0c8;
-            --accent-start: #7c3aed; /* violet */
-            --accent-end: #06b6d4;   /* teal */
-            --accent-shadow: rgba(99,102,241,0.15);
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(180deg, #f7f8fa 0%, #eef2f5 100%);
-            color: #0b2545;
-            line-height: 1.6;
-            margin: 0;
-            padding: 48px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .profile-card {
-            position: relative;
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid rgba(11,37,69,0.08);
-            box-shadow: 0 8px 24px rgba(11,37,69,0.06);
-            max-width: 560px;
-            width: 100%;
-            padding: 36px 36px 30px 36px;
-            text-align: center;
-        }
-
-        .profile-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 6px;
-            width: 100%;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-            background: linear-gradient(90deg, #0b2545 0%, #b08b2d 100%);
-        }
-
-        .avatar {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: #ffffff;
-            margin: 0 auto 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #0b2545;
-            font-size: 2rem;
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
-            border: 2px solid #0b2545;
-            box-shadow: 0 6px 18px rgba(11,37,69,0.06);
-            transition: transform 0.18s ease, box-shadow 0.18s ease;
-        }
-
-        h1 {
-            margin: 0 0 8px 0;
-            font-size: 1.9rem;
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
-            color: #0b2545;
-            letter-spacing: 0.2px;
-        }
-
-        .title {
-            color: #0b2545;
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
-            margin-bottom: 8px;
-            font-size: 1.02rem;
-        }
-
-        .name-underline {
-            width: 72px;
-            height: 6px;
-            margin: 8px auto 18px;
-            border-radius: 6px;
-            background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
-            box-shadow: 0 8px 30px rgba(124,58,237,0.12);
-        }
-
-        .bio {
-            color: #475b66;
-            margin-bottom: 20px;
-            font-size: 0.98rem;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .badge {
-            background: transparent;
-            color: #0b2545;
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid rgba(11,37,69,0.08);
-        }
-
-        .links a {
-            display: inline-block;
-            background: #0b2545;
-            color: #f7e5b8;
-            padding: 10px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.14s ease, box-shadow 0.14s ease, opacity 0.14s ease;
-            box-shadow: 0 8px 18px rgba(11,37,69,0.08);
-        }
-
-        .links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 34px rgba(11,37,69,0.12);
-            opacity: 0.98;
-        }
-
-        .divider {
-            height: 1px;
-            width: 86%;
-            margin: 18px auto;
-            background: linear-gradient(90deg, rgba(11,37,69,0.04), rgba(11,37,69,0.02));
-            border-radius: 2px;
-        }
-
-        @media (max-width: 480px) {
-            .profile-card { padding: 24px; }
-            .avatar { width: 96px; height: 96px; font-size: 2rem; }
-            h1 { font-size: 1.5rem; }
-            .bio { font-size: 0.95rem; }
-            .name-underline { width: 56px; height: 5px; }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Personal Profile - John Albert C. Lachica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+     <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="theme-toggle" aria-label="Toggle theme">?</button>
+    </header>
 
-    <div class="profile-card">
-        <div class="avatar">JL</div>
-        
-        <h1>John Albert C. Lachica</h1>
-        <div class="name-underline" aria-hidden="true"></div>
-        <div class="title">Aspiring Developer / Student</div>
-        
-        <p class="bio">
-            Welcome to my personal profile page! 
-        </p>
+    <main class="page-shell">
+        <div class="profile-card">
+            <div class="avatar-container" id="avatar-target">
+                <div class="avatar-fallback">JL</div>
+            </div>
 
-        <div class="skills">
-            <span class="badge">Git & GitHub</span>
-            <span class="badge">HTML5</span>
-            <span class="badge">CSS3</span>
-            <span class="badge">AI Prompting</span>
+            <h1>John Albert C. Lachica</h1>
+            <div class="name-underline" aria-hidden="true"></div>
+            <div class="title">Aspiring Developer / Student</div>
+
+            <p class="bio" id="bio-target">
+                Welcome to my personal profile page! Loading fresh insights...
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-val" id="repo-count">-</span>
+                    <span class="stat-label">Repositories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val" id="followers-count">-</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+            </div>
+
+ 
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <div class="links">
+                <a href="https://github.com/AlbertJohn2004" target="_blank">View GitHub </a>
+            </div>
         </div>
+    </main>
 
-        <div class="divider" aria-hidden="true"></div>
+    <script>
+        const GITHUB_USERNAME = 'AlbertJohn2004';
 
-        <div class="links">
-            <a href="https://github.com/AlbertJohn2004" target="_blank">View GitHub Portfolio</a>
-        </div>
-    </div>
+        async function fetchGitHubData() {
+            try {
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+                if (!response.ok) throw new Error('Network error fetching profile data');
 
+                const data = await response.json();
+
+                if(data.avatar_url) {
+                    document.getElementById('avatar-target').innerHTML = `
+                        <img src="${data.avatar_url}" alt="John Albert" class="avatar">
+                    `;
+                }
+
+                if(data.bio) {
+                    document.getElementById('bio-target').textContent = data.bio;
+                } else {
+                    document.getElementById('bio-target').textContent = "Welcome to my personal profile page! Check out my work below.";
+                }
+
+                document.getElementById('repo-count').textContent = data.public_repos;
+                document.getElementById('followers-count').textContent = data.followers;
+
+            } catch (error) {
+                console.error('Error binding cloud API data:', error);
+                document.getElementById('repo-count').textContent = "4";
+                document.getElementById('followers-count').textContent = "0";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchGitHubData);
+    </script>
 </body>
 </html>
